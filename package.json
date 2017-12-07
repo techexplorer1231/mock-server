@@ -1,7 +1,7 @@
 {
   "name": "mock-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "mock server for rapid development",
   "main": "index.js",
   "scripts": {
     "js": "json-server --watch index.js --port 4000",
@@ -10,7 +10,7 @@
       "concurrently -n \"JS,JSON\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"npm run js\" \"npm run json\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Pratap Singh",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^3.5.1",
