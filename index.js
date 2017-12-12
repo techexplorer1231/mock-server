@@ -1,23 +1,10 @@
-const faker = require('faker');
-const _ = require('lodash');
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('db.json');
+const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3000;
 
-module.exports = () => ({
-  categories: _.times(6, () => ({
-    image: faker.random.image(),
-    title: faker.lorem.sentence(),
-    id: faker.random.uuid(),
-  })),
-  products: _.times(100, () => ({
-    id: faker.random.uuid(),
-    images: [
-      faker.random.image(),
-      faker.random.image(),
-      faker.random.image(),
-      faker.random.image(),
-      faker.random.image(),
-    ],
-    'category-id': faker.random.uuid(),
-    price: faker.commerce.price(),
-    name: faker.commerce.productName(),
-  })),
-});
+server.use(middlewares);
+server.use(router);
+
+server.listen(port);
